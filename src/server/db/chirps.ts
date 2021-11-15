@@ -1,7 +1,7 @@
 import { Query } from "./index";
 import type { TChirps, TUsers} from "../models"
 
-const all = async () => Query("SELECT * FROM chirps");
+const all = async () => Query("SELECT * FROM chirps JOIN users on users.id=chirps.userid");
 
 const singleChirp = async (chirpid: number) => 
 Query(`SELECT 

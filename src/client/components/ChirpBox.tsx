@@ -1,17 +1,15 @@
 import * as React from "react"
 import { IChirp } from "../utils/types"
-import { useNavigate } from "react-router-dom"
-const ChirpBox: React.FC<ChirpBoxProps> = ({chirp})=> {
+import moment from "moment"
 
-    const history= useNavigate()
-    
-    const handleListClick = () => history(`/details/${chirp.id}`)
+
+const ChirpBox: React.FC<ChirpBoxProps> = ({chirp})=> {
 
     return (
         <li className="list-group-item py-3">
-            <h4>@Username{chirp.userid}</h4>
+            <h4>@{chirp.name}</h4>
             <p>{chirp.content}</p>
-            <small className="text-muted">{chirp._created}</small>
+            {/* <small className="text-muted">{moment(chirp._created, "MM-DD-YYYY")}</small> */}
         </li>
     )
 }

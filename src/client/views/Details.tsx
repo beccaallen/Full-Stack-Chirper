@@ -1,30 +1,43 @@
 import * as React from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import type { IChirp } from "../utils/types"
+
 
 
 const Details: React.FC<DetailsProps>= props => {
 
     const { chirpid } = useParams()
-	const [chirps, setChirps] = React.useState<IChirp[]>([]);
+	const [chirp, setChirp] = React.useState<IChirp>();
 
     React.useEffect(()=> {
         (async () => {
-            const res = await fetch("/chirps");
+            const res = await fetch(`/chirps/${chirpid}`);
             if(res.ok){
-                const chirps = await res.json();
-                setChirps(chirps)
+                const chirp = await res.json();
+                setChirp(chirp)
             }
         })();
     }, []);
 
 	return (
-
 		<main className="container">
-
-			<section className="row my-2 justify-content-center">
+        
+			<section className="row my-5 justify-content-center">
 				<div className="col-md-6">
-					<h1 className="text-center">Details for { chirpid }!!!</h1>
+					<div className="card">
+                        <div className="card-body">
+                            <h4 className="card-title">
+                            @{chirpid}
+                                <p className="card-text">
+                                {chirp?.content}
+                                </p>
+                            </h4>
+                        </div>
+                    </div>
+                    <div className="d-flex justify-content-end mt-1">
+                    <Link to="/" className="btn btn-outline-secondary m-1">Go Back</Link>
+                    <Link to={`/admin/${chirpid}`} className="btn btn-outline-secondary m-1">Edit</Link>
+                    </div>
 				</div>
 			</section>
 		</main>
