@@ -8,6 +8,7 @@ const Admin: React.FC<AdminProps> = props => {
     const { chirpid } =useParams()
 	const [content, setContent] = React.useState<string>("");
 	const [location, setLocation] = React.useState<string>("");
+	const [name, setName] = React.useState<string>("");
 
     React.useEffect(()=> {
         (async () => {
@@ -17,6 +18,7 @@ const Admin: React.FC<AdminProps> = props => {
                 const chirp = await res.json();
                 setContent(chirp.content)
                 setLocation(chirp.location)
+				setName(chirp.name)
             }
         })();
     }, [])
@@ -53,16 +55,17 @@ const Admin: React.FC<AdminProps> = props => {
 		<main className="container">
 
 			<section className="row my-2 justify-content-center">
-			<div className="col-md-6">
-					<form className="form-group p-3">
-						{/* <label htmlFor="username">Username</label>
-						<input type="text" className="form-control"/> */}
-						<label htmlFor="content">Edit Location</label>
-						<textarea value={location} onChange={e => setLocation(e.target.value)} className="form-control" rows={1}></textarea>
-						<label htmlFor="content">Edit Chirp</label>
-						<textarea value={content} onChange={e => setContent(e.target.value)} className="form-control" rows={8}></textarea>
-						<button onClick={handleSave} className="btn btn-info">Save</button>
-						<button onClick={handleDelete} className="btn btn-info">Delete</button>
+			<div className="col-md-6 my-5">
+					<form className="form-group admin-form p-3">
+						<h5>@{name}</h5>
+						<label className= "input-label" htmlFor="content">Edit Location</label>
+						<textarea value={location} onChange={e => setLocation(e.target.value)} className="form-control my-3" rows={1}></textarea>
+						<label className= "input-label" htmlFor="content">Edit Chirp</label>
+						<textarea value={content} onChange={e => setContent(e.target.value)} className="form-control my-3" rows={8}></textarea>
+						<div className="d-flex justify-content-end">
+							<button onClick={handleDelete} className="btn btn-delete">Delete</button>
+							<button onClick={handleSave} className="btn btn-save mx-3">Save</button>
+						</div>
 					</form>
 				</div>
 			</section>

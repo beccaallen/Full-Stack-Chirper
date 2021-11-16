@@ -27,13 +27,70 @@ $theme-colors: (
 .container {
 font-family: "Shippori Antique B1", sans-serif;
 font-weight: 400;
+color: $dark;
 
 }
 .card {
-  border: .5em solid $info !important;
+  border: .25em solid $info !important;
   border-radius: 1em !important;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important
   
 };
+.nav {
+	font-family: "Shippori Antique B1", sans-serif !important;
+	font-weight: 400 !important;
+	
+  };
+
+  .details {
+	  color: $primary !important;
+  }
+
+  .form-group{
+	background-color: white;
+	border: .25em solid $primary !important;
+	border-radius: 1em !important;
+	box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+	color: $dark !important;
+
+  }
+
+  .form-control{
+
+	color: $dark !important;
+
+  }
+
+  .input-label {
+	color: $primary !important;
+
+  }
+
+  .btn-link {
+	text-decoration:none !important;
+	color: $info !important;
+  }
+  .btn-submit {
+	background-color: $dark !important;
+	color: $light !important;
+  }
+  .btn-save {
+	background-color: $success !important;
+	color: $light !important;
+  }
+
+  .btn-delete {
+	background-color: $info !important;
+	color: $light !important;
+  }
+  .btn-edit {
+	background-color: $warning !important;
+	color: $light !important;
+  }
+  .btn-back {
+	background-color: $info !important;
+	color: $light !important;
+  }
 
 
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap');
