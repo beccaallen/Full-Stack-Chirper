@@ -1,16 +1,10 @@
 import { Query } from "./index";
-import type { TChirps, TUsers} from "../models"
 
-const all = async () => Query("SELECT * FROM chirps JOIN users on users.id=chirps.userid");
+const all = async () => Query("SELECT chirps.id, chirps.content, chirps.location, chirps._created, users.name FROM chirps JOIN users on users.id=chirps.userid");
 
-const singleChirp = async (chirpid: number) => 
-Query(`SELECT 
- users.name,
- chirps.*
- FROM chirps
- JOIN users ON users.id = chirps.userid
- WHERE chirps.id = ?`,
- [chirpid]);
+
+const singleChirp = async (chirpid: number) => Query(`select chirps.id, chirps.content, chirps.location, chirps._created, users.name from chirps join users on users.id = chirps.userid where chirps.id = ?`, [chirpid])
+
 
 const insert = (chirp: any) => Query("INSERT INTO chirps SET ?", chirp)
 

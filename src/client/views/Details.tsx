@@ -26,12 +26,11 @@ const Details: React.FC<DetailsProps>= props => {
 				<div className="col-md-6">
 					<div className="card">
                         <div className="card-body">
-                            <h4 className="card-title">
-                            @{chirpid}
-                                <p className="card-text">
+                            <p className="card-title">
+                            @{chirp?.name}</p>
+                                <h5 className="card-text">
                                 {chirp?.content}
-                                </p>
-                            </h4>
+                                </h5>
                         </div>
                     </div>
                     <div className="d-flex justify-content-end mt-1">

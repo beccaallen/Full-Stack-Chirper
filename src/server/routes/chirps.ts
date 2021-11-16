@@ -10,6 +10,7 @@ router.get("/:id?", async (req, res, next)=> {
     if(chirpid){
         try {
             const [chirp] = await db.Chirps.singleChirp(chirpid)
+            console.log(chirpid)
             res.json(chirp)
         }catch(err){
             console.log(err)

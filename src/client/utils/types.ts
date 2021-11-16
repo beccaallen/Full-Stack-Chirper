@@ -4,5 +4,5 @@ export interface IChirp {
         name: string,
         content: string,
         location: string
-        _created: Date   
+        _created: string  
 }

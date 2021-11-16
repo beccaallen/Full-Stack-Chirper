@@ -19,13 +19,12 @@ const Home: React.FC<HomeProps>= props => {
 	return (
 
 		<main className="container">
-			<section className="row my-2 justify-content-center">
-                <div className="col-md-9">
-                    <ul className="list-group">
+            
+			<section className="row my-5 justify-content-center">
+                <div className="col-md-6">
 				{chirps.map(chirp => (
                     <ChirpBox key={`chirp-box-${chirp.id}`} chirp={chirp}/>
                 ))}
-                 </ul>
                 </div>
 			</section>
 		</main>

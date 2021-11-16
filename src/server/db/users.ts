@@ -1,5 +1,4 @@
 import { Query } from "./index";
-import type { TUsers } from "../models";
 
 const all = async () => Query('SELECT id, name, email FROM users');
 // const all = async () => Query('select * from chirps join users on users.id = chirps.userid')
