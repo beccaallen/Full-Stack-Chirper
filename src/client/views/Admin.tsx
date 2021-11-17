@@ -2,9 +2,14 @@ import e from "express";
 import * as React from "react"
 import { useParams } from "react-router-dom"
 import { IChirp } from "../utils/types";
+import { useNavigate } from 'react-router';
+
 
 const Admin: React.FC<AdminProps> = props => {
 
+	
+	let navigate = useNavigate();
+		
     const { chirpid } =useParams()
 	const [content, setContent] = React.useState<string>("");
 	const [location, setLocation] = React.useState<string>("");
@@ -36,6 +41,7 @@ const Admin: React.FC<AdminProps> = props => {
 			const chirp = await res.json();
 			setContent(chirp.content)
 			setLocation(chirp.location)
+			navigate('/')
 		}
 	}
 	const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -47,6 +53,7 @@ const Admin: React.FC<AdminProps> = props => {
 			const chirp = await res.json();
 			setContent(chirp.content)
 			setLocation(chirp.location)
+			navigate('/')
 		}
 	}
 

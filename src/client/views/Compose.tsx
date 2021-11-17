@@ -1,6 +1,10 @@
 import * as React from "react"
+import { useNavigate } from 'react-router';
+
 
 const Compose: React.FC<ComposeProps>= props => {
+
+	let navigate = useNavigate()
 
 const [content, setContent] = React.useState<string>("");
 const [location, setLocation] = React.useState<string>("");
@@ -12,13 +16,15 @@ const submitChirp = async (e: React.MouseEvent<HTMLButtonElement>) => {
 		headers: {
 			"Content-Type" : "application/json"
 		},
-		body: JSON.stringify({location, content, userid: 1, name})
+		body: JSON.stringify({location, content, userid: 1})
 	})
 	if (res.ok) {
 		const result = await res.json()
 		console.log(result)
+		navigate("/")
 	}
 }
+
 
 	return (
 
