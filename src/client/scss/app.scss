@@ -31,7 +31,7 @@ color: $dark;
 
 }
 .card {
-  border: .25em solid $info !important;
+  border: .25em solid $primary !important;
   border-radius: 1em !important;
   box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important
   
@@ -44,6 +44,11 @@ color: $dark;
 
   .details {
 	  color: $primary !important;
+  }
+
+  .username {
+	color: $info !important;
+
   }
 
   .form-group{

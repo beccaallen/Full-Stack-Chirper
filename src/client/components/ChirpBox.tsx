@@ -14,7 +14,7 @@ const ChirpBox: React.FC<ChirpBoxProps> = ({ chirp }) => {
                 <div className="d-flex justify-content-between">
                     <div className="user-id">
                         {/* <img content="default-src *" src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="Placeholder UserID" /> */}
-                        <p className="card-title">@{chirp.name}</p>
+                        <p className="card-title username">@{chirp.name}</p>
                     </div>
                     <div className="icon-widget">
                         <Link className="m-2" to={`/admin/${chirp.id}`}> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-pencil" viewBox="0 0 16 16">
